@@ -30,6 +30,7 @@ export default function Logon() {
 
       history.push("/profile");
     } catch (err) {
+      setLoading(false);
       alert("Falha, tente novamente");
     }
   }
