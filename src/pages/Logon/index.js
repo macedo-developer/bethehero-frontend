@@ -9,6 +9,8 @@ import logoImg from "../../assets/logo.svg";
 import api from "../../services/api";
 
 export default function Logon() {
+  const [loading, setLoading] = useState(false);
+
   const [id, setId] = useState("");
 
   const history = useHistory();
@@ -17,10 +19,14 @@ export default function Logon() {
     e.preventDefault();
 
     try {
+      setLoading(true);
+
       const response = await api.post("session", { id });
 
       localStorage.setItem("ongId", id);
       localStorage.setItem("ongName", response.data.name);
+
+      setLoading(false);
 
       history.push("/profile");
     } catch (err) {
@@ -39,7 +45,8 @@ export default function Logon() {
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
-          <button className="button" type="submit">
+          <button className="button" type="submit" disabled={loading}>
+            {loading && <FiLogIn size={16} color="#E02041" />}
             Login
           </button>
 
