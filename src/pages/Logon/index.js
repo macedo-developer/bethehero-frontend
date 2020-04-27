@@ -45,9 +45,13 @@ export default function Logon() {
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
-          <button className="button" type="submit" disabled={loading}>
-            {loading && <FiLoader size={16} color="#000" />}
+          <button
+            className="button"
+            type="submit"
+            disabled={loading ? "true" : ""}
+          >
             Login
+            {loading && <FiLoader size={16} color="#fff" />}
           </button>
 
           <Link className="back-link" to="/register">
