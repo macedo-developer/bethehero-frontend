@@ -67,6 +67,10 @@ form textarea {
   filter: brightness(90%);
 }
 
+.button:disabled {
+  filter: opacity(50%);
+}
+
 .back-link {
   display: flex;
   align-items: center;

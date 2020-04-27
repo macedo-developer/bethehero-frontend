@@ -5,6 +5,7 @@ import { FiLogIn, FiLoader } from "react-icons/fi";
 
 import heroesImg from "../../assets/heroes.png";
 import logoImg from "../../assets/logo.svg";
+import loadingImg from "../../assets/load.svg";
 
 import api from "../../services/api";
 
@@ -52,8 +53,7 @@ export default function Logon() {
             disabled={loading ? "true" : ""}
           >
             {!loading && "Login"}
-            {loading && "Login  "}
-            {loading && <FiLoader size={16} color="#fff" />}
+            {loading && <img src={loadingImg} alt="loading" />}
           </button>
 
           <Link className="back-link" to="/register">
