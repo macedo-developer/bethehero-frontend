@@ -50,7 +50,7 @@ export default function Logon() {
             type="submit"
             disabled={loading ? "true" : ""}
           >
-            Login
+            {!loading && "Login"}
             {loading && <FiLoader size={16} color="#fff" />}
           </button>
 
