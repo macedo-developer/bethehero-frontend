@@ -52,6 +52,7 @@ export default function Logon() {
             disabled={loading ? "true" : ""}
           >
             {!loading && "Login"}
+            {loading && "Login  "}
             {loading && <FiLoader size={16} color="#fff" />}
           </button>
 
