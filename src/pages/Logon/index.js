@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./style.css";
-import { FiLogIn } from "react-icons/fi";
+import { FiLogIn, FiLoader } from "react-icons/fi";
 
 import heroesImg from "../../assets/heroes.png";
 import logoImg from "../../assets/logo.svg";
@@ -46,7 +46,7 @@ export default function Logon() {
             onChange={(e) => setId(e.target.value)}
           />
           <button className="button" type="submit" disabled={loading}>
-            {loading && <FiLogIn size={16} color="#E02041" />}
+            {loading && <FiLoader size={16} color="#000" />}
             Login
           </button>
 
