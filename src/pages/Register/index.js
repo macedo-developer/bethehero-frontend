@@ -8,8 +8,11 @@ import { Link, useHistory } from "react-router-dom";
 
 import { FiArrowLeft } from "react-icons/fi";
 import LogoImg from "../../assets/logo.svg";
+import loadingImg from "../../assets/load.svg";
 
 export default function Register() {
+  const [loading, setLoading] = useState(false);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -21,6 +24,7 @@ export default function Register() {
   async function handleRegister(e) {
     e.preventDefault();
 
+    setLoading(true);
     const data = {
       name,
       email,
@@ -33,8 +37,10 @@ export default function Register() {
 
       alert(`Seu ID: ${response.data.id}`);
 
+      setLoading(false);
       history.push("/");
     } catch (err) {
+      setLoading(false);
       alert("Ocorreu um erro");
     }
   }
@@ -88,8 +94,13 @@ export default function Register() {
             />
           </div>
 
-          <button className="button" type="submit">
-            Cadastrar
+          <button
+            className="button"
+            type="submit"
+            disable={loading ? "true" : ""}
+          >
+            {!loading && "Cadastrar"}
+            {loading && <img src={loadingImg} alt="Loading" />}
           </button>
         </form>
       </div>
