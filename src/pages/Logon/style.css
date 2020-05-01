@@ -22,7 +22,16 @@
   font-size: 3.2rem;
   margin-bottom: 32px;
 }
+@media (max-width: 1024px) {
+  .welcome img {
+    height: 50rem;
+    margin-right: 40px;
+  }
 
+  .logon-container section.form {
+    margin-left: 40px;
+  }
+}
 @media (max-width: 768px) {
   html {
     font-size: 50%;
